@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Saez_Castro_JoseMaria_TareaFinal_Tema2">
         <activity
+            android:name=".SecundaryActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

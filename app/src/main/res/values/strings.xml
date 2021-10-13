@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Saez_Castro_JoseMaria_TareaFinal_Tema2</string>
+    <string name="TextoInicial">Ayúdanos a mejorar nuestros productos y servicios</string>
+    <string name="BotonEmpezar">Empecemos</string>
 </resources>
