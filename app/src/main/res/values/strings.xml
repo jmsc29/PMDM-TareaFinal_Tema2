@@ -11,4 +11,5 @@
     <string name="tvProvincia">Provincia</string>
     <string name="tvInfoLegal">Información legal</string>
     <string name="tvTextoInfo">La elaboración de este cuestionario es completamente anónima. La información recabada solo se utilizará con fines estadísticos y formativos. En ningún momento se utilizará ni se facilitará a terceros cualquier información obtenida. Para cualquier aclaración puede ponerse en contacto con Diario de Trassierra a través de la cuenta de correo info@diariotrassierra.com. "</string>
+    <string name="botonContinuar">Continuar</string>
 </resources>

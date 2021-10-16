@@ -25,9 +25,7 @@
         android:id="@+id/imLogo"
         android:layout_width="104dp"
         android:layout_height="96dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvTituloDatos"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_diario_trassierra" />
@@ -36,13 +34,13 @@
         android:id="@+id/tvTituloDatos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="15dp"
         android:text="@string/tvTituloDatos"
         android:textAlignment="center"
         android:textColor="#363636"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imLogo" />
 
     <EditText
         android:id="@+id/etEdad"
@@ -151,29 +149,41 @@
         android:id="@+id/tvInfoLegal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:text="@string/tvInfoLegal"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/tvProvincia" />
 
     <ScrollView
-    android:layout_width="348dp"
-    android:layout_height="57dp"
-    android:layout_marginTop="10dp"
-    app:layout_constraintEnd_toStartOf="@+id/guideline3"
-    app:layout_constraintStart_toStartOf="@+id/guideline2"
-    app:layout_constraintTop_toBottomOf="@+id/tvInfoLegal">
+        android:id="@+id/scrollView2"
+        android:layout_width="348dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/tvInfoLegal">
 
         <TextView
             android:id="@+id/tvTextoInfo"
             android:layout_width="348dp"
             android:layout_height="57dp"
+            android:layout_marginTop="12dp"
             android:text="@string/tvTextoInfo"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/tvInfoLegal" />
 
-</ScrollView>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bContinuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/botonContinuar"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
