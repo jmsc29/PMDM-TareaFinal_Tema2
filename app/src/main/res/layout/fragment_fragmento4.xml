@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragmento4">
+
+    <TextView
+        android:id="@+id/tvPregunta4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pregunta4"
+        android:textColor="#363636"
+        android:textSize="16dp" />
+
+    <CheckBox
+        android:id="@+id/cb41"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/preg41"/>
+
+    <CheckBox
+        android:id="@+id/cb42"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/preg42"/>
+
+    <CheckBox
+        android:id="@+id/cb43"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/preg43"/>
+
+    <CheckBox
+        android:id="@+id/cb44"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/preg44"/>
+
+</LinearLayout>

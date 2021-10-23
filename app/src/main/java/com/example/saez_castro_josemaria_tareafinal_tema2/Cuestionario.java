@@ -26,12 +26,12 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
         preguntas = new ArrayList<>();
         preguntas.add(new Fragmento1());
         preguntas.add(new Fragmento2());
-        /*preguntas.add(new Fragmento1());
-        preguntas.add(new Fragmento1());
-        preguntas.add(new Fragmento1());
-        preguntas.add(new Fragmento1());
-        preguntas.add(new Fragmento1());
-        preguntas.add(new Fragmento1());*/
+        preguntas.add(new Fragmento3());
+        preguntas.add(new Fragmento4());
+        preguntas.add(new Fragmento5());
+        preguntas.add(new Fragmento6());
+        preguntas.add(new Fragmento7());
+        preguntas.add(new Fragmento8());
 
         siguiente = findViewById(R.id.bSiguiente);
 

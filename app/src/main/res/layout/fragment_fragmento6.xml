@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragmento2">
-
+    tools:context=".Fragmento6">
 
     <RadioGroup
-        android:id="@+id/rg2"
+        android:id="@+id/rg6"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,36 +16,35 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tvPregunta2"
+            android:id="@+id/tvPregunta6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/pregunta2"
+            android:text="@string/pregunta6"
             android:textColor="#363636"
             android:textSize="16dp" />
 
         <RadioButton
-            android:id="@+id/rb21"
+            android:id="@+id/rb61"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/preg21" />
+            android:text="@string/preg61" />
 
         <RadioButton
-            android:id="@+id/rb22"
+            android:id="@+id/rb62"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/preg22" />
+            android:text="@string/preg62" />
 
         <RadioButton
-            android:id="@+id/rb23"
+            android:id="@+id/rb63"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/preg23" />
+            android:text="@string/preg63" />
 
         <RadioButton
-            android:id="@+id/rb24"
+            android:id="@+id/rb64"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/preg24" />
+            android:text="@string/preg64" />
     </RadioGroup>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
