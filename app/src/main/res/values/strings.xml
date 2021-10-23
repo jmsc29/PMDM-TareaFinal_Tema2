@@ -12,4 +12,13 @@
     <string name="tvInfoLegal">Información legal</string>
     <string name="tvTextoInfo">La elaboración de este cuestionario es completamente anónima. La información recabada solo se utilizará con fines estadísticos y formativos. En ningún momento se utilizará ni se facilitará a terceros cualquier información obtenida. Para cualquier aclaración puede ponerse en contacto con Diario de Trassierra a través de la cuenta de correo info@diariotrassierra.com. "</string>
     <string name="botonContinuar">Continuar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tituloCuestionario">Cuestionario</string>
+    <string name="pregunta1">¿Cuánto tiempo lleva utilizando los productos/servicios de Diario de Trassierra?</string>
+    <string name="preg11">Menos de un mes</string>
+    <string name="preg12">Entre 6 meses y un año</string>
+    <string name="preg13">Entre 1 y 3 años</string>
+    <string name="preg14">Más de 3 años</string>
+    <string name="BotonSiguiente">SIGUIENTE</string>
 </resources>
