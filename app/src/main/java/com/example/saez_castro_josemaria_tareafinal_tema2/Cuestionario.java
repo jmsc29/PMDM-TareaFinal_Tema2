@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,6 +24,11 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
     private Button siguiente, finalizar;
     private RadioGroup res;
     private CheckBox cb1, cb2, cb3, cb4;
+    private TextView infoUsuario;
+
+    String edad;
+    String genero;
+    String provincia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,18 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
         cargaFragmento(preguntas.get(0));
 
         siguiente.setOnClickListener(this);
+
+        Bundle info = getIntent().getExtras();
+        edad = info.getString("edad");
+        genero = info.getString("genero");
+        provincia = info.getString("provincia");
+        /*edadU = edad;
+        generoU = genero;
+        provinciaU = provincia;*/
+
+        infoUsuario = findViewById(R.id.tvInfoUsuario);
+        infoUsuario.setText("Edad: " + edad + "       Género: " + genero + "       Provincia: " + provincia);
+
     }
 
     @Override
@@ -109,6 +127,9 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(Cuestionario.this, Confirmacion.class);
+                    intent.putExtra("edad", edad);
+                    intent.putExtra("genero", genero);
+                    intent.putExtra("provincia", provincia);
                     startActivity(intent);
                 }
             });
@@ -141,5 +162,4 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
             cargaFragmento(pregunta);
         }
     }
-
 }

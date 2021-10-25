@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class SecundaryActivity extends AppCompatActivity {
     private Button continuar;
     private RadioGroup genero;
     private EditText edad;
+    private RadioButton generoElegido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +73,13 @@ public class SecundaryActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "Introduce todos los datos para continuar", Toast.LENGTH_SHORT);
                 toast.show();
             } else {
+                int idGenero = genero.getCheckedRadioButtonId();
+                generoElegido = findViewById(idGenero);
+
                 Intent intent = new Intent(SecundaryActivity.this, Cuestionario.class);
+                intent.putExtra("edad", edad.getText().toString());
+                intent.putExtra("genero", generoElegido.getText().toString());
+                intent.putExtra("provincia", listaP.getSelectedItem().toString());
                 startActivity(intent);
             }
         }
