@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cuestionario">
+    tools:context=".Confirmacion">
 
     <ImageView
         android:id="@+id/ivFondo"
@@ -14,8 +14,10 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/fondo_diario_trassierra" />
 
     <ImageView
@@ -28,50 +30,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/ivLogoMeta"
+        android:layout_width="76dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/meta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoCuestionario" />
+
     <TextView
-        android:id="@+id/tvTCuestionario"
+        android:id="@+id/tvConfirmacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/tituloCuestionario"
+        android:layout_marginBottom="20dp"
+        android:text="@string/textConfirmacion"
         android:textColor="#363636"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivLogoCuestionario" />
-
-    <Button
-        android:id="@+id/bSiguiente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="50dp"
-        android:text="@string/BotonSiguiente"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ivLogoMeta"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/contenedor"
-        android:layout_width="match_parent"
-        android:layout_height="324dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogoCuestionario">
-
-    </FrameLayout>
-
-    <Button
-        android:id="@+id/bFinalizar"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvExito"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:text="@string/botonFinalizar"
-        app:layout_constraintBottom_toBottomOf="@+id/bSiguiente"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bSiguiente" />
+        android:layout_marginStart="45dp"
+        android:gravity="center"
+        android:text="@string/tvExito"
+        android:textColor="#FFBB86FC"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivLogoMeta"
+        app:layout_constraintStart_toEndOf="@+id/ivLogoMeta"
+        app:layout_constraintTop_toTopOf="@+id/ivLogoMeta" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

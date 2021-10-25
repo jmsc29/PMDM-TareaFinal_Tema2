@@ -55,4 +55,7 @@
     <string name="preg83">Probablemente no</string>
     <string name="preg84">Seguro que no</string>
     <string name="BotonSiguiente">SIGUIENTE</string>
+    <string name="botonFinalizar">Finalizar</string>
+    <string name="textConfirmacion">Confirmación</string>
+    <string name="tvExito">¡Cuestionario finalizado con éxito!</string>
 </resources>
