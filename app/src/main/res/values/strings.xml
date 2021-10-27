@@ -59,4 +59,8 @@
     <string name="textConfirmacion">Confirmación</string>
     <string name="tvExito">¡Cuestionario finalizado con éxito!</string>
     <string name="DatosUsuario">Datos de usuario/a:</string>
+    <string name="tituloRespuestas">Respuestas guardadas:</string>
+    <string name="datosServidos">Enviar datos</string>
+    <string name="tituloServidor">Respuesta del servidor:</string>
+    <string name="botonVolver">VOLVER</string>
 </resources>

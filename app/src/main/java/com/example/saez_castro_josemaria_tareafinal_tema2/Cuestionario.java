@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,13 +25,17 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
     private int contador = 0;
     private Button siguiente;
     private RadioGroup res;
+    private RadioButton respuesta;
     private CheckBox cb1, cb2, cb3, cb4;
+    private CheckBox[] checkBoxes;
     private TextView infoUsuario;
     private ProgressBar proB;
 
     private String edad;
     private String genero;
     private String provincia;
+    private String[] respuestas = new String[8];
+    private boolean servidor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +55,7 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
         infoUsuario.setText("Edad: " + edad + "       Género: " + genero + "       Provincia: " + provincia);
 
         proB = findViewById(R.id.progressBar);
-        proB.setProgress(0);
+        proB.setProgress(1);
 
     }
 
@@ -59,6 +64,7 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
         edad = info.getString("edad");
         genero = info.getString("genero");
         provincia = info.getString("provincia");
+        servidor = info.getBoolean("server");
     }
 
     @Override
@@ -71,42 +77,43 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
             switch(contador){
                 case 1:
                     res = findViewById(R.id.rg1);
-                    comprobarRespuesta(res, preguntas.get(contador));
-                    proB.setProgress(contador);
+                    comprobarRadioButton(res, preguntas.get(contador));
+                    proB.setProgress(contador+1);
                     break;
                 case 2:
                     res = findViewById(R.id.rg2);
-                    comprobarRespuesta(res, preguntas.get(contador));
-                    proB.setProgress(contador);
+                    comprobarRadioButton(res, preguntas.get(contador));
+                    proB.setProgress(contador+1);
                     break;
                 case 3:
                     res = findViewById(R.id.rg3);
-                    comprobarRespuesta(res, preguntas.get(contador));
-                    proB.setProgress(contador);
+                    comprobarRadioButton(res, preguntas.get(contador));
+                    proB.setProgress(contador+1);
                     break;
                 case 4:
                     cb1 = findViewById(R.id.cb41);
                     cb2 = findViewById(R.id.cb42);
                     cb3 = findViewById(R.id.cb43);
                     cb4 = findViewById(R.id.cb44);
+                    checkBoxes = new CheckBox[]{cb1, cb2, cb3, cb4};
                     comprobarCheckBox(cb1, cb2, cb3, cb4, preguntas.get(contador));
-                    proB.setProgress(contador);
+                    proB.setProgress(contador+1);
                     break;
                 case 5:
                     res = findViewById(R.id.rg5);
-                    comprobarRespuesta(res, preguntas.get(contador));
-                    proB.setProgress(contador);
+                    comprobarRadioButton(res, preguntas.get(contador));
+                    proB.setProgress(contador+1);
                     break;
                 case 6:
                     res = findViewById(R.id.rg6);
-                    comprobarRespuesta(res, preguntas.get(contador));
-                    proB.setProgress(contador);
+                    comprobarRadioButton(res, preguntas.get(contador));
+                    proB.setProgress(contador+1);
                     break;
                 case 7:
                     res = findViewById(R.id.rg7);
-                    comprobarRespuesta(res, preguntas.get(contador));
+                    comprobarRadioButton(res, preguntas.get(contador));
                     siguiente.setText("Finalizar");
-                    proB.setProgress(contador);
+                    proB.setProgress(contador+1);
                     break;
                 default:
                     break;
@@ -114,9 +121,9 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
         }else{
             res = findViewById(R.id.rg8);
             if (res.getCheckedRadioButtonId() != -1){
-                proB.setProgress(contador);
                 terminarCuestionario();
             }else{
+                contador--;
                 Toast toast = Toast.makeText(getApplicationContext(), "Elige una opción", Toast.LENGTH_SHORT);
                 toast.show();
             }
@@ -130,12 +137,13 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
         transaction.commit();
     }
 
-    private void comprobarRespuesta(RadioGroup res, Fragment pregunta){
+    private void comprobarRadioButton(RadioGroup res, Fragment pregunta){
         if(res.getCheckedRadioButtonId() == -1){
             contador--;
             Toast toast = Toast.makeText(getApplicationContext(), "Elige una opción", Toast.LENGTH_SHORT);
             toast.show();
         }else{
+            respuestas[contador-1] = RadioButtonElegido();
             cargaFragmento(pregunta);
         }
     }
@@ -146,15 +154,39 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
             Toast toast = Toast.makeText(getApplicationContext(), "Elige al menos una opción", Toast.LENGTH_SHORT);
             toast.show();
         }else{
+            respuestas[contador-1] = CheckBoxElegido();
             cargaFragmento(pregunta);
         }
     }
 
+    private String RadioButtonElegido(){
+        int elegido = res.getCheckedRadioButtonId();
+        View rb = res.findViewById(elegido);
+        return String.valueOf(res.indexOfChild(rb));
+    }
+
+    private String CheckBoxElegido(){
+        String checkBoxElegidos = "";
+        for(int i = 0; i < checkBoxes.length; i++){
+            if(checkBoxes[i].isChecked()){
+                checkBoxElegidos += (i+1);
+            }
+        }
+        return checkBoxElegidos;
+    }
+
     private void terminarCuestionario(){
+        respuestas[contador-1] = RadioButtonElegido();
+
+        Bundle b = new Bundle();
+        b.putStringArray("respuestas", respuestas);
+
         Intent intent = new Intent(Cuestionario.this, Confirmacion.class);
         intent.putExtra("edad", edad);
         intent.putExtra("genero", genero);
         intent.putExtra("provincia", provincia);
+        intent.putExtra("server", servidor);
+        intent.putExtras(b); // Para poder pasar la array
         startActivity(intent);
     }
 
