@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,50 +22,43 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
     ArrayList<Fragment> preguntas;
     private FragmentManager miManejador;
     private int contador = 0;
-    private Button siguiente, finalizar;
+    private Button siguiente;
     private RadioGroup res;
     private CheckBox cb1, cb2, cb3, cb4;
     private TextView infoUsuario;
+    private ProgressBar proB;
 
-    String edad;
-    String genero;
-    String provincia;
+    private String edad;
+    private String genero;
+    private String provincia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuestionario);
 
-        preguntas = new ArrayList<>();
-        preguntas.add(new Fragmento1());
-        preguntas.add(new Fragmento2());
-        preguntas.add(new Fragmento3());
-        preguntas.add(new Fragmento4());
-        preguntas.add(new Fragmento5());
-        preguntas.add(new Fragmento6());
-        preguntas.add(new Fragmento7());
-        preguntas.add(new Fragmento8());
+        crearFragmentos();
+        recogerInfo();
 
         siguiente = findViewById(R.id.bSiguiente);
-        finalizar = findViewById(R.id.bFinalizar);
-        finalizar.setEnabled(false);
+        siguiente.setOnClickListener(this);
 
         miManejador = getSupportFragmentManager();
         cargaFragmento(preguntas.get(0));
 
-        siguiente.setOnClickListener(this);
+        infoUsuario = findViewById(R.id.tvInfoUsuario);
+        infoUsuario.setText("Edad: " + edad + "       Género: " + genero + "       Provincia: " + provincia);
 
+        proB = findViewById(R.id.progressBar);
+        proB.setProgress(0);
+
+    }
+
+    private void recogerInfo() {
         Bundle info = getIntent().getExtras();
         edad = info.getString("edad");
         genero = info.getString("genero");
         provincia = info.getString("provincia");
-        /*edadU = edad;
-        generoU = genero;
-        provinciaU = provincia;*/
-
-        infoUsuario = findViewById(R.id.tvInfoUsuario);
-        infoUsuario.setText("Edad: " + edad + "       Género: " + genero + "       Provincia: " + provincia);
-
     }
 
     @Override
@@ -78,14 +72,17 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
                 case 1:
                     res = findViewById(R.id.rg1);
                     comprobarRespuesta(res, preguntas.get(contador));
+                    proB.setProgress(contador);
                     break;
                 case 2:
                     res = findViewById(R.id.rg2);
                     comprobarRespuesta(res, preguntas.get(contador));
+                    proB.setProgress(contador);
                     break;
                 case 3:
                     res = findViewById(R.id.rg3);
                     comprobarRespuesta(res, preguntas.get(contador));
+                    proB.setProgress(contador);
                     break;
                 case 4:
                     cb1 = findViewById(R.id.cb41);
@@ -93,22 +90,23 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
                     cb3 = findViewById(R.id.cb43);
                     cb4 = findViewById(R.id.cb44);
                     comprobarCheckBox(cb1, cb2, cb3, cb4, preguntas.get(contador));
+                    proB.setProgress(contador);
                     break;
                 case 5:
                     res = findViewById(R.id.rg5);
                     comprobarRespuesta(res, preguntas.get(contador));
+                    proB.setProgress(contador);
                     break;
                 case 6:
                     res = findViewById(R.id.rg6);
                     comprobarRespuesta(res, preguntas.get(contador));
+                    proB.setProgress(contador);
                     break;
                 case 7:
                     res = findViewById(R.id.rg7);
                     comprobarRespuesta(res, preguntas.get(contador));
-                    break;
-                case 8:
-                    res = findViewById(R.id.rg8);
-                    comprobarRespuesta(res, preguntas.get(contador));
+                    siguiente.setText("Finalizar");
+                    proB.setProgress(contador);
                     break;
                 default:
                     break;
@@ -116,23 +114,12 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
         }else{
             res = findViewById(R.id.rg8);
             if (res.getCheckedRadioButtonId() != -1){
-                siguiente.setEnabled(false);
-                finalizar.setEnabled(true);
+                proB.setProgress(contador);
+                terminarCuestionario();
             }else{
                 Toast toast = Toast.makeText(getApplicationContext(), "Elige una opción", Toast.LENGTH_SHORT);
                 toast.show();
             }
-
-            finalizar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(Cuestionario.this, Confirmacion.class);
-                    intent.putExtra("edad", edad);
-                    intent.putExtra("genero", genero);
-                    intent.putExtra("provincia", provincia);
-                    startActivity(intent);
-                }
-            });
         }
     }
 
@@ -162,4 +149,25 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
             cargaFragmento(pregunta);
         }
     }
+
+    private void terminarCuestionario(){
+        Intent intent = new Intent(Cuestionario.this, Confirmacion.class);
+        intent.putExtra("edad", edad);
+        intent.putExtra("genero", genero);
+        intent.putExtra("provincia", provincia);
+        startActivity(intent);
+    }
+
+    private void crearFragmentos(){
+        preguntas = new ArrayList<>();
+        preguntas.add(new Fragmento1());
+        preguntas.add(new Fragmento2());
+        preguntas.add(new Fragmento3());
+        preguntas.add(new Fragmento4());
+        preguntas.add(new Fragmento5());
+        preguntas.add(new Fragmento6());
+        preguntas.add(new Fragmento7());
+        preguntas.add(new Fragmento8());
+    }
+
 }

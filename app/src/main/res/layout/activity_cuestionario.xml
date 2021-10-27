@@ -45,10 +45,10 @@
         android:id="@+id/bSiguiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="72dp"
         android:text="@string/BotonSiguiente"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
@@ -64,16 +64,6 @@
 
     </FrameLayout>
 
-    <Button
-        android:id="@+id/bFinalizar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:text="@string/botonFinalizar"
-        app:layout_constraintBottom_toBottomOf="@+id/bSiguiente"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bSiguiente" />
-
     <TextView
         android:id="@+id/tvInfoUsuario"
         android:layout_width="wrap_content"
@@ -81,6 +71,22 @@
         android:layout_marginBottom="60dp"
         android:textSize="13dp"
         app:layout_constraintBottom_toTopOf="@+id/contenedor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:indeterminate="false"
+        android:max="8"
+        android:min="0"
+        android:progress="1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
