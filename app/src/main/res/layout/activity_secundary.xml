@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Saez_Castro_JoseMaria_TareaFinal_Tema2"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:theme="@style/Theme.Saez_Castro_JoseMaria_TareaFinal_Tema2"
     tools:context=".SecundaryActivity">
 
     <ImageView
@@ -36,7 +36,7 @@
         android:id="@+id/tvTituloDatos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="@string/tvTituloDatos"
         android:textAlignment="center"
         android:textColor="#363636"
@@ -50,8 +50,8 @@
         android:layout_width="56dp"
         android:layout_height="48dp"
         android:ems="10"
-        android:textSize="15dp"
         android:inputType="number"
+        android:textSize="15dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/tvEdad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
@@ -75,30 +75,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleX="0.75"
-            android:scaleY="0.75"
-            android:text="@string/generoHombre"
-            android:textSize="16dp" />
+            android:scaleY="0.8"
+            android:scaleX="0.8"
+            android:text="@string/generoHombre"/>
 
         <RadioButton
             android:id="@+id/rbMujer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleX="0.75"
-            android:scaleY="0.75"
-            android:text="@string/generoMujer"
-            android:textSize="16dp" />
+            android:scaleY="0.8"
+            android:scaleX="0.8"
+            android:text="@string/generoMujer"/>
 
         <RadioButton
             android:id="@+id/rbOtro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleX="0.75"
-            android:scaleY="0.75"
-            android:text="@string/generoOtro"
-            android:textSize="16dp" />
+            android:scaleY="0.8"
+            android:scaleX="0.8"
+            android:text="@string/generoOtro"/>
     </RadioGroup>
 
     <TextView
@@ -116,10 +113,10 @@
         android:id="@+id/tvEdad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="@string/tvEdad"
         android:textColor="#363636"
-        android:textSize="14dp"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/tvTituloDatos" />
 
@@ -128,14 +125,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="30dp" />
+        app:layout_constraintGuide_begin="25dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="30dp" />
+        app:layout_constraintGuide_end="25dp" />
 
     <TextView
         android:id="@+id/tvProvincia"
@@ -150,8 +147,8 @@
 
     <Spinner
         android:id="@+id/spListaP"
-        android:layout_width="171dp"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="6dp"
         android:minHeight="48dp"
@@ -163,17 +160,19 @@
         android:id="@+id/tvInfoLegal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/tvInfoLegal"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/swDatos" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProvincia" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="300dp"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ivFondo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvInfoLegal">
 
@@ -181,9 +180,10 @@
             android:id="@+id/tvTextoInfo"
             android:layout_width="match_parent"
             android:layout_height="57dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="0dp"
             android:text="@string/tvTextoInfo"
             android:textSize="12dp"
+            android:lineSpacingExtra="2dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/tvInfoLegal" />
@@ -194,22 +194,22 @@
         android:id="@+id/bContinuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/botonContinuar"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <Switch
         android:id="@+id/swDatos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="20dp"
         android:minHeight="48dp"
         android:text="@string/datosServidos"
         android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spListaP" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/bContinuar"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,8 @@
             android:exported="true" />
         <activity
             android:name=".Cuestionario"
-            android:exported="true" />
+            android:exported="true"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"/>
         <activity
             android:name=".SecundaryActivity"
             android:exported="true" />

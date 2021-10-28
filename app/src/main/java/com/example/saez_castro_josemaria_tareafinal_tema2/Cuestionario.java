@@ -37,6 +37,9 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
     private String[] respuestas = new String[8];
     private boolean servidor;
 
+    //CON --> android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"/>
+    //EN EL MANIFIESTO, CONSIGO QUE SE MANTENGAN LAS OPCIONES SELECCIONADAS AL CAMBIAR DE ORIENTACIÓN
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,7 +139,6 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
         transaction.replace(R.id.contenedor, f);
         transaction.commit();
     }
-
     private void comprobarRadioButton(RadioGroup res, Fragment pregunta){
         if(res.getCheckedRadioButtonId() == -1){
             contador--;
@@ -188,6 +190,10 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("server", servidor);
         intent.putExtras(b); // Para poder pasar la array
         startActivity(intent);
+        finish(); //Finalizo aquí la actividad para que cuando estoy en la pantalla de confirmación, es decir
+        //donde me muestra la información del cuestionario, los datos del cuestionario y la respuesta del servidor
+        //esto me permite que si le da al botón de atrás del teléfono, no vuelva a la actividad que contiene los fragmentos
+        //ya que si quisiera modificar alguna preguna, crashearía la aplicación
     }
 
     private void crearFragmentos(){
