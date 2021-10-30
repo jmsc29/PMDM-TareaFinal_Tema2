@@ -48,8 +48,8 @@
 
     <ImageView
         android:id="@+id/ivLogo"
-        android:layout_width="279dp"
-        android:layout_height="301dp"
+        android:layout_width="157dp"
+        android:layout_height="125dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"

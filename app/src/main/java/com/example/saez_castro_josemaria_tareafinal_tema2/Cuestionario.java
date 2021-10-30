@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -62,6 +64,29 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_pr, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.IAcercaDE:
+                Intent acerca = new Intent(Cuestionario.this, AcercaDe.class);
+                startActivity(acerca);
+                return true;
+            case R.id.IAyuda:
+                Intent ayuda = new Intent(Cuestionario.this, Ayuda.class);
+                startActivity(ayuda);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void recogerInfo() {
         Bundle info = getIntent().getExtras();
         edad = info.getString("edad");
@@ -115,7 +140,7 @@ public class Cuestionario extends AppCompatActivity implements View.OnClickListe
                 case 7:
                     res = findViewById(R.id.rg7);
                     comprobarRadioButton(res, preguntas.get(contador));
-                    siguiente.setText("Finalizar");
+                    siguiente.setText(R.string.botonFinalizar);
                     proB.setProgress(contador+1);
                     break;
                 default:
